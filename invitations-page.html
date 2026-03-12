@@ -277,6 +277,8 @@
         // Initialize Lucide icons
         lucide.createIcons();
 
+        document.getElementById('year').textContent = new Date().getFullYear();
+
         // Intersection Observer for reveal animations
         const observerOptions = {
             threshold: 0.1,
