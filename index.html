@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Andrew Haber | Web Developer</title>
+    <meta name="description" content="Portfolio of Andrew Haber, a self-taught web developer from Lebanon specializing in high-performance web apps, e-commerce ecosystems, and bespoke digital experiences.">
+    <meta name="keywords" content="Andrew Haber, Web Developer, Lebanon, Full-Stack Developer, Front-end, Back-end, Firebase, Sanity CMS, UI/UX, Web Apps, E-commerce, Portfolio">
+    <meta name="author" content="Andrew Haber">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://andrewhaber.netlify.app"> 
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://andrewhaber.netlify.app">
+    <meta property="og:title" content="Andrew Haber | Web Developer Portfolio">
+    <meta property="og:description" content="Self-taught developer crafting next-level digital experiences, from interactive invitation systems to complex e-commerce platforms.">
+    <meta property="og:image" content="https://andrewhaber.netlify.app/og-image.jpg"> 
+
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://andrewhaber.netlify.app">
+    <meta property="twitter:title" content="Andrew Haber | Web Developer Portfolio">
+    <meta property="twitter:description" content="Self-taught developer crafting next-level digital experiences, from interactive invitation systems to complex e-commerce platforms.">
+    <meta property="twitter:image" content="https://andrewhaber.app.netlify/og-image.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: '#09090b', 
+                        surface: '#18181b', 
+                        primary: '#f4f4f5', 
+                        muted: '#a1a1aa', 
+                        accent: '#3b82f6', 
+                        sanity: '#f03e2f',
+                        firebase: '#f5820b', 
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom utilities for that 21st.dev premium feel */
+        body {
+            background-color: #09090b;
+            color: #f4f4f5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .glass-nav {
+            background: rgba(9, 9, 11, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .bento-card {
+            background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.03) 0%, transparent 60%), rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .bento-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f3f46;
+        }
+    </style>
+</head>
+<body class="relative selection:bg-white/20 selection:text-white">
+
+ 
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-accent/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-purple-500/10 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-blue-500/10 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-4000"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDIiLz4KPC9zdmc+')] opacity-50"></div>
+    </div>
+
+
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 py-4">
+        <div class="max-w-6xl mx-auto px-6 md:px-12 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-tighter text-white flex items-center gap-2" aria-label="Andrew Haber Home">
+                <img src="image.png" alt="AH Initials Logo" class="rounded-full w-12 h-12">
+                <span class="hidden sm:block">Andrew Haber</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-sm font-medium text-muted hover:text-white transition-colors">About</a>
+                <a href="#portfolio" class="text-sm font-medium text-muted hover:text-white transition-colors">Work</a>
+                <a href="#contact" class="text-sm font-medium text-muted hover:text-white transition-colors">Contact</a>
+            </nav>
+
+            <a href="https://wa.me/96181495030" class="px-5 py-2.5 text-sm font-medium rounded-full bg-white text-black hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)]">
+                Hire Me
+            </a>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+            <div class="max-w-4xl mx-auto text-center z-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-muted mb-8 animate-fade-in-up" style="animation-delay: 0.1s;">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Available for new opportunities
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    Crafting <span class="text-gradient">Next-Level</span><br />
+                    Digital Experiences.
+                </h1>
+                
+                <p class="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 animate-fade-in-up leading-relaxed" style="animation-delay: 0.3s;">
+                    I'm Andrew Haber, a web developer building high-performance websites, complex web apps, and modern digital ecosystems.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <a href="#portfolio" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-black font-semibold hover:scale-105 transition-transform flex items-center justify-center gap-2">
+                        Explore My Work <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#about" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                        About Me
+                    </a>
+                </div>
+            </div>
+            
+        </section>
+
+        <section id="about" class="py-24 px-6 relative border-t border-white/5 bg-black/20">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    
+                    <div class="reveal order-2 lg:order-1 relative">
+
+                        <div class="aspect-square rounded-3xl overflow-hidden border border-white/10 bg-surface relative flex items-center justify-center group">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            
+                
+                            <div class="w-4/5 h-4/5 bg-[#0d0d12] rounded-xl border border-white/10 p-4 shadow-2xl flex flex-col font-mono text-sm">
+                                <div class="flex gap-2 mb-4">
+                                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                                </div>
+                                <div class="text-green-400 mb-2">~ andrew$ whoami</div>
+                                <div class="text-muted mb-4">andrew_haber</div>
+                                <div class="text-green-400 mb-2">~ andrew$ cat skills.json</div>
+                                <div class="text-blue-300">
+                                    {<br>
+                                    &nbsp;&nbsp;"passion": "Coding & Problem Solving",<br>
+                                    &nbsp;&nbsp;"origin": "Lebanon",<br>
+                                    &nbsp;&nbsp;"status": "Self-Taught",<br>
+                                    &nbsp;&nbsp;"stack": ["JavaScript", "Tailwind CSS", "Firebase", "Sanity", "HTML"]<br>
+                                    }
+                                </div>
+                                <div class="mt-auto text-muted animate-pulse">_</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal order-1 lg:order-2">
+                        <h2 class="text-sm font-bold tracking-widest text-accent uppercase mb-3">About Me</h2>
+                        <h3 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Driven by <span class="text-gradient">Passion.</span> Built with Code.</h3>
+                        
+                        <div class="space-y-6 text-muted text-lg leading-relaxed">
+                            <p>
+                                I am a strictly self-taught developer and a proud part of Lebanon's youth. My journey into programming didn't start in a traditional classroom; it started with an intense curiosity to understand how the digital world operates and a relentless drive to build things from scratch.
+                            </p>
+                            <p>
+                                What sets me apart isn't just the code I write, but the passion behind it. I don't just build websites; I architect digital ecosystems. Whether it's integrating complex Firebase databases or structuring seamless content models with Sanity CMS, I treat every project as an opportunity to push the boundaries of modern web development.
+                            </p>
+                            <div class="flex flex-wrap gap-3 pt-4">
+                                <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm flex items-center gap-2">
+                                    <i data-lucide="code" class="w-4 h-4 text-accent"></i> Front-End Architecture
+                                </span>
+                                <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm flex items-center gap-2">
+                                    <i data-lucide="database" class="w-4 h-4 text-sanity"></i> Headless CMS
+                                </span>
+                                <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm flex items-center gap-2">
+                                    <i data-lucide="server" class="w-4 h-4 text-firebase"></i> Backend Integration
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="py-24 px-6 relative border-t border-white/5">
+            <div class="max-w-7xl mx-auto">
+                
+                <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-accent uppercase mb-3">Selected Work</h2>
+                    <h3 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Engineering the Web.</h3>
+                    <p class="text-muted text-lg">
+                        A collection of web applications, e-commerce ecosystems, and bespoke websites built for performance and scalability.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                    <article class="bento-card rounded-2xl p-6 flex flex-col h-full reveal relative overflow-hidden group">
+                        <div class="mb-4 flex justify-between items-start">
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center border border-white/10 text-white">
+                                <i data-lucide="mail-open" class="w-6 h-6"></i>
+                            </div>
+                          
+                            <span class="px-2.5 py-1 text-[10px] uppercase tracking-wider font-bold rounded-md bg-[#f5820b]/10 text-[#f5820b] border border-[#f5820b]/20 flex items-center gap-1">
+                                <i data-lucide="flame" class="w-3 h-3"></i> Firebase
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors">Digital Invitation System</h4>
+                        <p class="text-sm text-muted mb-6 flex-grow">
+                            A comprehensive web application featuring a management dashboard and beautiful digital invites. Built for real-time RSVP tracking.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-white/10 flex flex-wrap gap-2">
+                            <a href="invitations-page.html" class="text-xs font-medium text-white hover:text-accent transition-colors flex items-center gap-1">
+                                View Invites <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="bento-card rounded-2xl p-6 flex flex-col h-full reveal relative overflow-hidden group lg:col-span-2">
+                        <div class="mb-4 flex justify-between items-start">
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center border border-white/10 text-white">
+                                <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex gap-2">
+                                <span class="px-2.5 py-1 text-[10px] uppercase tracking-wider font-bold rounded-md bg-[#f03e2f]/10 text-[#f03e2f] border border-[#f03e2f]/20 flex items-center gap-1">
+                                    Sanity
+                                </span>
+                                <span class="px-2.5 py-1 text-[10px] uppercase tracking-wider font-bold rounded-md bg-[#f5820b]/10 text-[#f5820b] border border-[#f5820b]/20 flex items-center gap-1">
+                                    Firebase
+                                </span>
+                            </div>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-2 text-white group-hover:text-accent transition-colors">E-Commerce Ecosystem</h4>
+                        <p class="text-sm text-muted mb-6 max-w-lg">
+                            A dual-platform solution: A high-converting storefront paired with a powerful custom store dashboard. Includes a smart CRM system for order management and analytics.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-white/10">
+                            <a href="https://thegripconcept.netlify.app/" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-colors">
+                                View Storefront <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="bento-card rounded-2xl p-6 flex flex-col h-full reveal group">
+                        <div class="mb-4">
+                            <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center border border-white/10">
+                                <i data-lucide="scale" class="w-5 h-5 text-muted"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">Haber Law Website</h4>
+                        <p class="text-sm text-muted">Professional, highly optimized corporate website for a legal firm ensuring credibility and client conversion.</p>
+                        <div class="mt-auto pt-4 border-t border-white/10">
+                            <a href="https://haberlawfirm.netlify.app" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-colors">
+                                View Website <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="bento-card rounded-2xl p-6 flex flex-col h-full reveal group">
+                        <div class="mb-4 flex justify-between items-start">
+                            <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center border border-white/10">
+                                <i data-lucide="trophy" class="w-5 h-5 text-muted"></i>
+                            </div>
+                            <span class="px-2 py-0.5 text-[9px] uppercase font-bold rounded bg-[#f03e2f]/10 text-[#f03e2f] border border-[#f03e2f]/20">Sanity</span>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">Haber Sports Mgt</h4>
+                        <p class="text-sm text-muted">Dynamic platform for sports management. Content powered entirely by a headless Sanity architecture.</p>
+                        <div class="mt-auto pt-4 border-t border-white/10">
+                            <a href="https://habersportsm.netlify.app" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-colors">
+                                View Page <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="bento-card rounded-2xl p-6 flex flex-col h-full reveal group">
+                        <div class="mb-4 flex justify-between items-start">
+                            <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center border border-white/10">
+                                <i data-lucide="car" class="w-5 h-5 text-muted"></i>
+                            </div>
+                            <span class="px-2 py-0.5 text-[9px] uppercase font-bold rounded bg-[#f03e2f]/10 text-[#f03e2f] border border-[#f03e2f]/20">Sanity</span>
+                        </div>
+                        <h4 class="text-lg font-bold mb-6 max-w-lg">Khawly Motors</h4>
+                        <p class="text-sm text-muted">High-end dealership inventory website. Real-time vehicle listings managed easily via custom Sanity schemas.</p>
+                        <div class="mt-auto pt-4 border-t border-white/10">
+                            <a href="https://ekhawlymotors.netlify.app" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-colors">
+                                View Dealership <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="bento-card rounded-2xl p-6 flex flex-col h-full reveal group md:col-span-2 lg:col-span-1">
+                        <div class="mb-4 flex justify-between items-start">
+                            <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center border border-white/10">
+                                <i data-lucide="mountain" class="w-5 h-5 text-muted"></i>
+                            </div>
+                            <span class="px-2 py-0.5 text-[9px] uppercase font-bold rounded bg-[#f03e2f]/10 text-[#f03e2f] border border-[#f03e2f]/20">Sanity</span>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">Next Level 4x4</h4>
+                        <p class="text-sm text-muted">E-commerce shopping interface tailored for off-road enthusiasts. Lightning-fast product loads.</p>
+                        <div class="mt-auto pt-4 border-t border-white/10">
+                            <a href="https://nextlvl4x4.netlify.app/" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-colors">
+                                View Storefront <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="bento-card rounded-2xl p-6 flex flex-col h-full reveal group lg:col-span-2">
+                        <div class="mb-4 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center border border-accent/20 text-accent">
+                                <i data-lucide="wrench" class="w-6 h-6"></i>
+                            </div>
+                            <div class="pt-1">
+                                <h4 class="text-xl font-bold">Technician App Platform</h4>
+                                <p class="text-xs text-muted mt-1 uppercase tracking-wider">Business Management Prototype</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-muted mb-4 max-w-xl">
+                            A comprehensive promotional website showcasing a prototype SaaS application for technician business management. Features complex layout structures to highlight app interfaces.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-white/10">
+                            <a href="https://technicianapp.netlify.app" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-colors">
+                                View Website <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bento-card rounded-xl p-4 text-center reveal">
+                        <h5 class="font-semibold text-sm mb-1 text-white">Beit Setti Cafe</h5>
+                        <p class="text-xs text-muted">Static Menu UI</p>
+                        <div class="mt-auto pt-4 border-t border-white/10">
+                            <a href="https://beitsettimenu.netlify.app" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-colors">
+                                View Menu <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bento-card rounded-xl p-4 text-center reveal" style="transition-delay: 50ms;">
+                        <h5 class="font-semibold text-sm mb-1 text-white">Paperless Invitations</h5>
+                        <p class="text-xs text-muted">Landing Page For Digital Invites System</p>
+                        <div class="mt-auto pt-4 border-t border-white/10">
+                            <a href="paperlessinvitations.online" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-colors">
+                                View Page <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bento-card rounded-xl p-4 text-center reveal relative" style="transition-delay: 100ms;">
+                        <span class="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-[#f03e2f]"></span>
+                        <h5 class="font-semibold text-sm mb-1 text-white">Bhamdoun</h5>
+                        <p class="text-xs text-muted">Front End Website for my home village</p>
+                        <div class="mt-auto pt-4 border-t border-white/10">
+                            <a href="https://livelovebhamdoun.web.app/" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-colors">
+                                View Village Website <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bento-card rounded-xl p-4 text-center reveal relative" style="transition-delay: 150ms;">
+                        <span class="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-[#f03e2f]"></span>
+                        <h5 class="font-semibold text-sm mb-1 text-white">Nerali Scents</h5>
+                        <p class="text-xs text-muted">Perfume Store Website</p>
+                        <div class="mt-auto pt-4 border-t border-white/10">
+                            <a href="https://neraliscents.netlify.app" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-colors">
+                                View Storefront <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center reveal">
+                    <p class="text-muted italic text-sm">+ Many more functional prototypes and bespoke client builds.</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="contact" class="py-32 px-6 relative border-t border-white/5 bg-gradient-to-b from-transparent to-black">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="reveal">
+                    <div class="w-20 h-20 mx-auto rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-8 relative">
+                        <div class="absolute inset-0 rounded-full border border-accent/30 animate-ping"></div>
+                        <i data-lucide="zap" class="w-8 h-8 text-white"></i>
+                    </div>
+                    
+                    <h2 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Let's build something <br><span class="text-gradient">extraordinary.</span></h2>
+                    <p class="text-xl text-muted mb-12 max-w-2xl mx-auto">
+                        Whether you need a dynamic web app, an e-commerce ecosystem, or a digital overhaul. I'm ready to write the code.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                        <a href="mailto:haberandrew2@gmail.com" class="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden transition-transform hover:scale-105 w-full sm:w-auto flex items-center justify-center gap-3">
+                            <span class="relative z-10 flex items-center gap-2">Send an Email <i data-lucide="send" class="w-4 h-4"></i></span>
+                        </a>
+                        
+                        <div class="flex items-center gap-4">
+                            <a href="https://github.com/haberandrew" class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-muted hover:text-white hover:bg-white/10 transition-all" aria-label="GitHub">
+                                <i data-lucide="github" class="w-6 h-6"></i>
+                            </a>
+                            <a href="www.linkedin.com/in/andrew-haber-57297038b" class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-muted hover:text-white hover:bg-white/10 transition-all" aria-label="LinkedIn">
+                                <i data-lucide="linkedin" class="w-6 h-6"></i>
+                            </a>
+                            <a href="https://wa.me/96181495030" class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-muted hover:text-white hover:bg-white/10 transition-all" aria-label="Whatsapp">
+                                <i data-lucide="message-circle" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 px-6 border-t border-white/5 text-center">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-muted">
+                &copy; <span id="year"></span> Andrew Haber. All rights reserved.
+            </p>
+            <p class="text-xs text-muted flex items-center gap-1">
+                Designed & Built with <i data-lucide="heart" class="w-3 h-3 text-amber-600"></i> in Lebanon
+            </p>
+        </div>
+    </footer>
+
+    <script>
+
+        lucide.createIcons();
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-nav');
+                navbar.classList.replace('py-4', 'py-3');
+            } else {
+                navbar.classList.remove('glass-nav');
+                navbar.classList.replace('py-3', 'py-4');
+            }
+        });
+
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            });
+        }, revealOptions);
+
+        const reveals = document.querySelectorAll('.reveal');
+        reveals.forEach(reveal => {
+            revealOnScroll.observe(reveal);
+        });
+    </script>
+</body>
+</html>
